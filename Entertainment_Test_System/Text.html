@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Entertainment_Test_System</title>
+    <meta http-equiv="X-UA-Compatibe" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./static/css/bootstrap-3.3.7.css" />
+    <link rel="stylesheet" href="./static/css/style.css" />
+    <script src="./static/js/jquery-3.2.1.min.js"></script>
+    <script src="./static/js/bootstrap-3.3.7.js"></script>
+    
+  </head>
+  <body>
+    <!--<jsp:include page="header.jsp" flush="true"></jsp:include>-->
+    <nav
+      class="navbar navbar-default navbar-yami-header navbar-default-yami"
+      role="navigation"
+    >
+      <div class="row container-fluid">
+        <a class="navbar-brand col-sm-3 title2" href="#">模拟测试网站</a>
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#example-navbar-collapse"
+          >
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+          <div class="col-sm-6">
+            <ul class="nav navbar-nav nav-yami-ul">
+              <li class="col-sm-4"><a href="./index.html">首页</a></li>
+              <li class="col-sm-4"><a href="./sort.html">分类</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-3">
+            <ul class="nav navbar-nav navbar-right nav-yami-ul">
+              <li><a href="##">个人信息</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-under">
+      <div class="row">
+        <img
+          class="img-responsive nav-underimg col-sm-12"
+          src="./static/img/top.png"
+        />
+      </div>
+    </div>
+    <div class="Text-firstpage">
+      <div class="container">
+        <div class="row Text-main">
+          <div class="Subject col-sm-7 col-sm-offset-1">
+            <p id="Question" class="Question">
+            </p>
+            <div class="Answer">
+              <input
+                id="btn_A"
+                onclick="btn_A()"
+                type="button"
+                class="btn btn-default btn-answer"
+              />
+              <input
+                id="btn_B"
+                onclick="btn_B()"
+                type="button"
+                class="btn btn-default btn-answer"
+              />
+              <input
+                id="btn_C"
+                onclick="btn_C()"
+                type="button"
+                class="btn btn-default btn-answer"
+              />
+              <input
+                id="btn_D"
+                onclick="btn_D()"
+                type="button"
+                class="btn btn-default btn-answer"
+              />
+            </div>
+          </div>
+          <div class="Grade col-sm-3">
+            <p id="realtime_Grade" class="realtime-Grade">分数：0</p>
+            <div class="progress">
+              <div
+                id="Grade_bar"
+                class="progress-bar"
+                role="progressbar"
+                aria-valuenow="0"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="width: 0%;"
+              ></div>
+            </div>
+            <p>测试须知：</p>
+            <p>1、测试期间请勿刷新页面或者从该页面跳转到其它页面</p>
+            <p>2、在测试过程中若以关闭页面等方式中断页面，将不会留下测试记录</p>
+            <p>3、若质疑题目答案出错或者其他问题（比如某个字错了），请在测试结束给我们进行反馈</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="Text-over col-sm-offset-1 col-sm-10" id="Text_over">
+            <p id="over_Grade" class="over-Grade">分数：0</p>
+            <div class="progress">
+              <div
+                id="over_bar"
+                class="progress-bar"
+                role="progressbar"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+            <button class="btn btn-default check-Subject" onclick="check_Subject()">查看试题</button>
+          </div>
+        </div>
+        <div class=" row">
+          <div class="Subject-Data col-sm-offset-1 col-sm-10" id="Subject-Data">
+          </div>
+        </div>
+    </div>
+    <div class="modal fade Feedback_insert" id="Feedback_insert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content" >
+              <div class="modal-header" style="text-align: center;"> 
+                  <h4 class="modal-title" id="myModalLabel">试题反馈</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row Update-style">
+                  <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                      <label for="insert_S_N" class="col-sm-2 control-label">试题编号</label>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" id="backId"  disabled>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="insert_S_Q" class="col-sm-offset-1 col-sm-1 control-label">反馈</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="backMsg">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-4 col-sm-2">
+                        <input type="button" class="btn btn-default" value="提交反馈" onclick="test()">
+                      </div>
+                      <div class="col-sm-2">
+                        <button class="btn  btn-default" data-dismiss="modal">返回</a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+          </div><!-- /.modal-content -->
+      </div><!-- /.modal -->
+    </div>
+    <script type="text/javascript">
+    //模拟传过来的json数据
+      var Subnum_json = new Array("A00001","A00002");
+      var Question_json = new Array("养鸡党和养女党的梗出自哪部动漫以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品？"
+      ,"以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品?");
+      var A_json = new Array("A.樱花庄的宠物女孩以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品","A.夏日大作战以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品");
+      var B_json = new Array("B.真实之泪以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品","B.龙猫以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品");
+      var C_json = new Array("C.悠久之翼以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品","C.幽灵公主以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品");
+      var D_json = new Array("D.邻座怪同学以下哪部不是宫崎骏的作品以下哪部不是宫崎骏&#13;&#10;的作品以下哪部不是宫崎骏的作品邻座怪同学以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品s","D.千与千寻以下哪部不是宫崎骏的作品以下哪部不是宫崎骏的作品");
+      var Subject_count = 2; //题目数量
+      var True_Anawer = new Array("B","A");//模拟查询的答案
+
+      var Subnum_list = new Array();
+      var Question_list = new Array();
+      var pQuestion_list = new Array();
+      var Answer_A_list = new Array();
+      var Answer_B_list = new Array();
+      var Answer_C_list = new Array();
+      var Answer_D_list = new Array();
+
+      var Answer_list = new Array();//用户答案
+      var Now_Subject = 0;//当前题目，0为第一题
+      var grade = 0; //分数
+      var bar = 0; //分数条
+      var bar_Add_once = 100 / Subject_count; //分数条一次增加多少
+      
+      //遍历题目数据，存入数组中
+      for(i=0;i<Subject_count;i++){
+        Subnum_list[i] = Subnum_json[i];
+        Question_list[i] = Question_json[i];
+        Answer_A_list[i] = A_json[i];
+        Answer_B_list[i] = B_json[i];
+        Answer_C_list[i] = C_json[i];
+        Answer_D_list[i] = D_json[i];
+      }
+
+      
+      function lastSubject() {
+        Now_Subject++;
+        if(Now_Subject == Subject_count){//判断最后一题
+          $(".Text-main").fadeOut(500,function(){
+          $(".Text-over").fadeIn(500);
+          $(".over-Grade").html("分数：" + grade);
+          $("#over_bar").css("width", bar + "%");
+        })
+        }
+        else{
+          $("#Question").html(Question_list[Now_Subject]);
+          $("#btn_A").val(Answer_A_list[Now_Subject]);
+          $("#btn_B").val(Answer_B_list[Now_Subject]);
+          $("#btn_C").val(Answer_C_list[Now_Subject]);
+          $("#btn_D").val(Answer_D_list[Now_Subject]);
+        }
+      } //题目赋值
+
+      $(document).ready(function(){
+        $("#Question").html(Question_list[Now_Subject]);
+        $("#btn_A").val(Answer_A_list[Now_Subject]);
+        $("#btn_B").val(Answer_B_list[Now_Subject]);
+        $("#btn_C").val(Answer_C_list[Now_Subject]);
+        $("#btn_D").val(Answer_D_list[Now_Subject]);
+      });//第一题赋值
+      
+      
+      /*选项按钮事件*/
+      function btn_A() {
+        if (True_Anawer[Now_Subject] == "A") {
+          grade = grade + 1;
+          bar = bar + bar_Add_once;
+          $("#realtime_Grade").html("分数：" + grade);
+          $("#Grade_bar").css("width", bar + "%");
+        }
+        Answer_list[Now_Subject] = "A";
+        lastSubject();
+      }
+      function btn_B() {
+        if (True_Anawer[Now_Subject] == "B") {
+          grade = grade + 1;
+          bar = bar + bar_Add_once;
+          $("#realtime_Grade").html("分数：" + grade);
+          $("#Grade_bar").css("width", bar + "%");
+        }
+        Answer_list[Now_Subject] = "B";
+        lastSubject();
+      }
+      function btn_C() {
+        if (True_Anawer[Now_Subject] == "C") {
+          grade = grade + 1;
+          bar = bar + bar_Add_once;
+          $("#realtime_Grade").html("分数：" + grade);
+          $("#Grade_bar").css("width", bar + "%");
+        }
+        Answer_list[Now_Subject] = "C";
+        lastSubject();
+      }
+      function btn_D() {
+        if (True_Anawer[Now_Subject] == "D") {
+          grade = grade + 1;
+          bar = bar + bar_Add_once;
+          $("#realtime_Grade").html("分数：" + grade);
+          $("#Grade_bar").css("width", bar + "%");
+        }
+        Answer_list[Now_Subject] = "D";
+        lastSubject();
+      }
+      /*选项按钮事件*/
+      var xxx ;
+      $(".Subject-Data").on('click','.Feedback-button',function(){
+        xxx = this;
+        $("#backId").val($(xxx).attr("value"));
+        $(xxx).css("pointer-events","none");
+        $(xxx).html("已反馈");
+      });//反馈按钮事件
+      function test(){
+        alert($(xxx).attr("value"));
+      }
+      function check_Subject(){
+        $(".Text-over").hide(500,show_allSubject());
+      }//查看试题
+      
+      function show_allSubject(){
+        $(".Subject-Data").fadeIn(500);
+        for(i=0;i<Subject_count;i++){
+          $('<div class="Subject-box col-sm-12 "/>')
+          .html('<p class="Over-Question col-sm-offset-1 col-sm-10">'+Question_list[i]+'</p>'
+              +'<p class="Over-Question col-sm-offset-1 col-sm-10">'+Answer_A_list[i]+'</p>'
+              +'<p class="Over-Question col-sm-offset-1 col-sm-10">'+Answer_B_list[i]+'</p>'
+              +'<p class="Over-Question col-sm-offset-1 col-sm-10">'+Answer_C_list[i]+'</p>'
+              +'<p class="Over-Question col-sm-offset-1 col-sm-10">'+Answer_D_list[i]+'</p>'
+              +'<p class="Over-trueAnswer col-sm-offset-1 col-sm-5">正确答案：'+True_Anawer[i]+'</p>'
+              +'<p class="Over-userAnswer col-sm-5">你的答案：'+ Answer_list[i]+'</p>'
+              +'<a class="btn btn-default col-sm-offset-1 col-sm-2 Feedback-button" href="#Feedback_insert"  data-toggle="modal" value="'+Subnum_list[i]+'">反馈</a><div class=" col-sm-8"></div>')
+          .appendTo($(".Subject-Data"));
+        }
+      }//答题结束显示所有题目
+
+    </script>
+  </body>
+</html>

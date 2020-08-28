@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Entertainment_Test_System</title>
+    <meta http-equiv="X-UA-Compatibe" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/bootstrap-3.3.7.css" />
+    <link rel="stylesheet" href="./static/css/style.css" />
+    <link rel="stylesheet" href="./static/css/bootstrap-datetimepicker.min.css" />
+    <script src="./static/js/jquery-3.2.1.min.js"></script>
+    <script src="./static/js/bootstrap-3.3.7.js"></script>
+    <script src="./static/js/bootstrap-datetimepicker.js"></script>
+    
+  </head>
+  
+  <body>
+    <!--<jsp:include page="header.jsp" flush="true"></jsp:include>-->
+    <nav
+      class="navbar navbar-default navbar-yami-header navbar-default-yami"
+      role="navigation"
+    >
+      <div class="row container-fluid">
+        <a class="navbar-brand col-sm-3 title" href="#myModal" data-toggle="modal" >模拟测试网站</a>
+      </div>
+      </div>
+    </nav>
+    <div class="nav-under">
+      <div class="row">
+        <img class="img-responsive nav-underimg col-sm-12" src="./static/img/top.png" />
+      </div>
+    </div>
+    <div class="modal fade lr-dialog" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header" style="text-align: center;"> 
+                  <h4 class="modal-title" id="myModalLabel">这是一个奇怪的弹窗</h4>
+              </div>
+              <div class="modal-body" style="text-align: center;"><input type="text" id="order"></div>
+              <div class="modal-footer" style="text-align: center;">
+                  <button type="button" id="order_button" class="btn btn-default" data-dismiss="modal">关闭</button>
+              </div>
+          </div><!-- /.modal-content -->
+      </div><!-- /.modal -->
+    </div>
+    <div class="login-register">
+      <div class="container">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class=" col-sm-8">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a
+                          class="hidden_Admin"
+                          data-toggle="collapse"
+                          data-parent="#accordion"
+                          href="#collapseOne"
+                        >
+                          <img class="panel-img" src="./static/img/login.png">
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                        <form class="form-horizontal" role="form" id="login">
+                            <div class="form-group">
+                              <label for="inputError" class="col-sm-3 control-label">账号</label>
+                              <div class="col-sm-6">
+                                <input type="text" class="form-control" id="User_email" name="email" placeholder="请输入邮箱">
+                              </div>
+                              <div class="col-sm-3"><span class="sora1"></span></div>
+                            </div>
+                            <div class="form-group">
+                              <label for="U_p" class="col-sm-3 control-label">密码</label>
+                              <div class="col-sm-6">
+                                <input type="password" class="form-control" id="User_password" name="userPwd" placeholder="请输入密码">
+                              </div>
+                              <div class="col-sm-3"><span class="sora2"></span></div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-sm-5"></div>
+                              <div class="col-sm-2" style="text-align: center;">
+                                <button type="submit" class="btn btn-default" id="loginbtn" onclick="login()" disabled>登录</button>
+                              </div>
+                              <div class="col-sm-5"></div>
+                            </div>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a
+                          data-toggle="collapse"
+                          data-parent="#accordion"
+                          href="#collapseTwo"
+                        >
+                          <img class="panel-img" src="./static/img/register.png">
+                        </a>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <form class="form-horizontal" role="form" id="register">
+                            <div class="form-group">
+                              <label for="rU_n" class="col-sm-3 control-label">用户名</label>
+                              <div class="col-sm-6">
+                                <input type="text" class="form-control" id="username" name="userName" placeholder="请输入用户名">
+                              </div>
+                              <div class="col-sm-3"><span class="sora3"></span></div>
+                            </div>
+                            <div class="form-group">
+                              <label for="rU_p" class="col-sm-3 control-label">密码</label>
+                              <div class="col-sm-6">
+                                <input type="password" class="form-control" id="userpwd" name="userPwd" placeholder="请输入密码">
+                              </div>
+                              <div class="col-sm-3"><span class="sora4"></span></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Re_rU_p" class="col-sm-3 control-label">安可</label>
+                                <div class="col-sm-6">
+                                  <input type="password" class="form-control R_userpwd" placeholder="请再输入密码">
+                                </div>
+                                <div class="col-sm-3"><span class="sora5"></span></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="rM" class="col-sm-3 control-label">邮箱</label>
+                                <div class="col-sm-6">
+                                  <input type="text" class="form-control" id="email" name="email" placeholder="请输入邮箱">
+                                </div>
+                                <div class="col-sm-3"><span class="sora6"></span></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="rS" class="col-sm-3 control-label">性别</label>
+                                <div class="col-sm-3">
+                                    <select class="form-control" id="gender" name="gender">
+                                    <option value="M">男</option>
+                                    <option value="W">女</option>
+                                    </select>
+                                </div>
+                                <div class=" col-sm-6"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="rA" class="col-sm-3 control-label">生日</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" id="birthday" name="birthday" placeholder="请选择生日">
+                                </div>
+                                <div class=" col-sm-6"><span class="sora7"></span></div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-sm-5"></div>
+                              <div class="col-sm-2" style="text-align: center;">
+                                <button type="submit" class="btn btn-default" id="regButton" onclick="user_register()">注册</button>
+                              </div>
+                              <div class="col-sm-5"></div>
+                            </div>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default Admin">
+                    <div class="panel-heading">
+                        <a
+                          data-toggle="collapse"
+                          data-parent="#accordion"
+                          href="#collapseThree"
+                        >
+                          <img class="panel-img" src="./static/img/manager_login.png">
+                        </a>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <form class="form-horizontal" role="form" id="adminLogin">
+                            <div class="form-group">
+                              <label for="A_n" class="col-sm-3 control-label">管理员名字</label>
+                              <div class="col-sm-6">
+                                <input type="text" class="form-control" id="Admin_name" name="adminName" placeholder="请输入管理员名字">
+                              </div>
+                              <div class="col-sm-3"><span class="sora8"></span></div>
+                            </div>
+                            <div class="form-group">
+                              <label for="A_p" class="col-sm-3 control-label">密码</label>
+                              <div class="col-sm-6">
+                                <input type="password" class="form-control" id="Admin_password" name="adminPwd" placeholder="请输入密码">
+                              </div>
+                              <div class="col-sm-3"><span class="sora9"></span></div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-sm-4"></div>
+                              <div class="col-sm-4" style="text-align: center;">
+                                <button type="submit" class="btn btn-default" id="adminbtn" onclick="adminLogin()" disabled>管理员登录</button>
+                              </div>
+                              <div class="col-sm-4"></div>
+                            </div>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(function(){
+        $("#regButton").attr("disabled","true");
+      });
+      var User_email = $("#User_email");
+      User_email.hover(function(){
+        check_userlogin();
+        if(User_email.val() == ""){
+          $(".sora1").html("不能为空");
+        }else{
+          $(".sora1").html("");
+        }
+      });
+      var User_password = $("#User_password");
+      User_password.hover(function(){
+        check_userlogin();
+        if(User_password.val() == ""){
+          $(".sora2").html("不能为空");
+        }else{
+          $(".sora2").html("");
+        }
+      });
+      //注册
+      var r_User_name = $("#username");
+      r_User_name.hover(function(){
+        register();
+        if(r_User_name.val() == ""){
+          $(".sora3").html("不能为空");
+        }else{
+          $(".sora3").html("");
+        }
+      });
+      var r_User_password = $("#userpwd");
+      r_User_password.hover(function(){
+        register();
+        if(r_User_password.val() == ""){
+          $(".sora4").html("不能为空");
+        }else{
+          $(".sora4").html("");
+        }
+      });
+      var Re_r_User_password = $(".R_userpwd");
+      Re_r_User_password.hover(function(){
+        register();
+        if(Re_r_User_password.val() == ""){
+          $(".sora5").html("不能为空");
+        }
+        else if(r_User_password.val() != Re_r_User_password.val()){
+          $(".sora5").html("两次密码不同");
+        }
+        else{
+          $(".sora5").html("");
+        }
+      });
+      var r_Mail = $("#email");
+      var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+      r_Mail.hover(function(){
+        register();
+        if(r_Mail.val() == ""){
+          $(".sora6").html("不能为空");
+        }else if(!reg.test(r_Mail.val())){
+          $(".sora6").html("邮箱格式错误");
+        }
+        else{
+          checkEmail();
+        }
+      });
+      var r_Age = $("#birthday");
+      r_Age.hover(function(){
+        register();
+        if(r_Age.val() == ""){
+          $(".sora7").html("不能为空");
+        }else{
+          $(".sora7").html("");
+        }
+      });
+      $("#order_button").click(function(){
+          if($("#order").val() == "admin"){
+            $(".Admin").show();
+          }
+      });
+      var Admin_name = $("#Admin_name");
+      Admin_name.hover(function(){
+        check_adminlogin();
+        if(Admin_name.val() == ""){
+          $(".sora8").html("不能为空");
+        }else{
+          $(".sora8").html("");
+        }
+      });
+      var Admin_password = $("#Admin_password");
+      Admin_password.hover(function(){
+        check_adminlogin();
+        if(Admin_password.val() == ""){
+          $(".sora9").html("不能为空");
+        }else{
+          $(".sora9").html("");
+        }
+      });
+      
+    $("#birthday").datepicker({
+        minView: "month",
+        format: "yyyy-mm-dd",
+        language: 'zh-CN',
+        autoclose:true
+    });
+    function login(){
+      event.preventDefault();
+      $.ajax({
+          type: "POST",
+          dataType: "JSON",
+          url: "http://127.0.0.1/test/login",
+          data: $("#login").serialize(),
+          xhrFields: { withCredentials: true },
+          crossDomain: true,
+          success: function (result) {
+            if(result=="success"){
+              window.location.href = "./sort.html";
+            }else{
+              $(".sora1").html("账号或密码错误！");
+            }
+          },
+          error: function () {
+            alert("服务器异常！");
+          }
+        });
+    }
+    /*激活按钮事件*/
+    function check_userlogin(){
+      if(User_email.val() != "" && User_password.val() != ""){
+        $("#loginbtn").removeAttr("disabled");
+      }
+    }
+    $("#loginbtn").hover(function(){
+      if(User_email.val() == "" || User_password.val() == ""){
+        $("#loginbtn").attr("disabled",true);
+      }
+    });
+
+    function register(){
+      if(r_User_name.val() != "" && r_User_password.val() != "" && Re_r_User_password.val() != ""
+      && r_User_password.val() == Re_r_User_password.val() && r_Mail.val() != "" && reg.test(r_Mail.val()) 
+      &&checkEmail()&&r_Age.val() != ""){
+          $("#regButton").removeAttr("disabled");
+      }
+    }
+    $("#regButton").hover(function(){
+      if(r_User_name.val() == "" || r_User_password.val() == "" || Re_r_User_password.val() == ""
+      || r_User_password.val() != Re_r_User_password.val() || r_Mail.val() == "" || !reg.test(r_Mail.val())||r_Age.val() == ""){
+        $("#regButton").attr("disabled",true);
+      }
+    });
+    function check_adminlogin(){
+      if(Admin_name.val() != "" && Admin_password.val() != ""){
+        $("#adminbtn").removeAttr("disabled");
+      }
+    }
+    $("#adminbtn").hover(function(){
+      if(Admin_name.val() == "" || Admin_password.val() == ""){
+        $("#adminbtn").attr("disabled",true);
+      }
+    });
+    function user_register(){
+      $.ajax({
+          type: "POST",
+          dataType: "JSON",
+          url: "http://127.0.0.1/test/register",
+          data: $("#register").serialize(),
+          xhrFields: { withCredentials: true },
+          crossDomain: true,
+          success: function (result) {
+            if(result=="success"){
+              console.log(result);
+              window.location.href = "./login_register.html";
+            }else{
+              $(".sora1").html("注册失败！");
+            }
+          },
+          error: function () {
+            alert("服务器异常1！");
+          }
+        });
+    }
+    function adminLogin(){
+      event.preventDefault();
+      $.ajax({
+          type: "POST",
+          dataType: "JSON",
+          url: "http://127.0.0.1/test/loginadmin",
+          data: $("#adminLogin").serialize(),
+          xhrFields: { withCredentials: true },
+          crossDomain: true,
+          success: function (result) {
+            if(result=="success"){
+              window.location.href = "./sort.html";
+            }else{
+              $(".sora8").html("账号或密码错误！");
+            }
+          },
+          error: function () {
+            alert("服务器异常2！");
+          }
+        });
+    }
+    function checkEmail(){
+      obj = false;
+      $.ajax({
+          type: "POST",
+          dataType: "JSON",
+          async: false,
+          url: "http://127.0.0.1/test/checkemail",
+          data: {"email":r_Mail.val()},
+          xhrFields: { withCredentials: true },
+          crossDomain: true,
+          success: function (result) {
+            if(result=="ok"){
+              $(".sora6").html("");
+              obj = true;
+            }else{
+              $(".sora6").html("该邮箱已被注册！");
+            }
+          },
+          error: function () {
+            alert("服务器异常3！");
+          }
+        }); 
+        return obj;
+    }
+    </script>
+  </body>
+</html>

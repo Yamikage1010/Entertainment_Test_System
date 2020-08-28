@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Entertainment_Test_System</title>
+    <meta http-equiv="X-UA-Compatibe" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/bootstrap-3.3.7.css" />
+    <link rel="stylesheet" href="./static/css/style.css" />
+    <script src="./static/js/jquery-3.2.1.min.js"></script>
+    <script src="./static/js/bootstrap-3.3.7.js"></script>
+  </head>
+  <body>
+    <!--<jsp:include page="header.jsp" flush="true"></jsp:include>-->
+    <nav
+      class="navbar navbar-default navbar-yami-header navbar-default-yami"
+      role="navigation"
+    >
+      <div class="row container-fluid">
+        <a class="navbar-brand col-sm-3 title2">模拟测试系统</a>
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#example-navbar-collapse"
+          >
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+          <div class="col-sm-6">
+            <ul class="nav navbar-nav nav-yami-ul">
+              <li class="col-sm-4"><a href="./index.html">首页</a></li>
+              <li class="col-sm-4"><a href="#">分类</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-3">
+            <ul class="nav navbar-nav navbar-right nav-yami-ul">
+              <li><a href="##">个人信息</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-under">
+      <div class="row">
+        <img class="img-responsive nav-underimg col-sm-12" src="./static/img/top.png" />
+      </div>
+    </div>
+    <div class="sort-firstpage">
+      <div class="container">
+        <div class="row">
+            <div class="sort-title">
+                <h1>分类</h1>
+            </div>
+            <div class="hint col-sm-10 col-sm-offset-1">
+              <p>测试须知：</p>
+              <p>1，现测试分为五种类型，五种类型可自由组合选择，但题目数量总和必须为10，20，50；</p>
+              <p>2，全随机，即五种类型全随机，题目数量仍为10，20，50但各类型题目数量为随机</p>
+              <p>3，点开面板即已选择</p>
+            </div>
+          <div class="panel-group col-sm-offset-1 col-sm-10" id="accordion">
+            <form id="testForm" method="POST" onsubmit="return one_to_five()"><!--一到五的表单-->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                  <a
+                    data-toggle="collapse"
+                    data-parent="#accordion"
+                    href="#collapseOne"
+                  >
+                    <img class="panel-img" src="./static/img/sort-img1.png">
+                  </a>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div class="form-group">
+                      <div class=" col-sm-2">
+                        <input class="form-control" type="text" name="type" value="类型一" disabled>
+                      </div>
+                      <label class="col-sm-2 control-label" style="left: 7%;padding-top: 1%;">题目数量：</label>
+                      <div class="col-sm-8">
+                        <select class="form-control col-sm-8" name="num" value="0">
+                          <option>0</option>
+                          <option>5</option>
+                          <option>10</option>
+                          <option>20</option>
+                          <option>50</option>
+                        </select>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                  <a
+                    data-toggle="collapse"
+                    data-parent="#accordion"
+                    href="#collapseTwo"
+                  >
+                    <img class="panel-img" src="./static/img/sort-img2.png" alt="">
+                  </a>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <div class=" col-sm-2">
+                      <input class="form-control" type="text" name="type" value="类型二" disabled>
+                    </div>
+                    <label class="col-sm-2 control-label" style="left: 7%;padding-top: 1%;">题目数量：</label>
+                    <div class="col-sm-8">
+                      <select class="form-control col-sm-8" name="num" value="0">
+                        <option>0</option>
+                        <option>5</option>
+                        <option>10</option>
+                        <option>20</option>
+                        <option>50</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                  <a
+                    data-toggle="collapse"
+                    data-parent="#accordion"
+                    href="#collapseThree"
+                  >
+                  <img class="panel-img" src="./static/img/sort-img3.png" alt="">
+                  </a>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <div class=" col-sm-2">
+                      <input class="form-control" type="text" name="type" value="类型三" disabled>
+                    </div>
+                    <label class="col-sm-2 control-label" style="left: 7%;padding-top: 1%;">题目数量：</label>
+                    <div class="col-sm-8">
+                      <select class="form-control col-sm-8" name="num" value="0">
+                        <option>0</option>
+                        <option>5</option>
+                        <option>10</option>
+                        <option>20</option>
+                        <option>50</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a
+                      data-toggle="collapse"
+                      data-parent="#accordion"
+                      href="#collapseFour"
+                    >
+                      <img class="panel-img" src="./static/img/sort-img4.png">
+                    </a>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="form-group">
+                      <div class=" col-sm-2">
+                        <input class="form-control" type="text" name="type" value="类型四" disabled>
+                      </div>
+                      <label class="col-sm-2 control-label" style="left: 7%;padding-top: 1%;">题目数量：</label>
+                      <div class="col-sm-8">
+                        <select class="form-control col-sm-8" name="num" value="0">
+                          <option>0</option>
+                          <option>5</option>
+                          <option>10</option>
+                          <option>20</option>
+                          <option>50</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a
+                      data-toggle="collapse"
+                      data-parent="#accordion"
+                      href="#collapseFive"
+                    >
+                      <img class="panel-img" src="./static/img/sort-img5.png">
+                    </a>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="form-group">
+                      <div class=" col-sm-2">
+                        <input class="form-control" type="text" name="type" value="类型五" disabled>
+                      </div>
+                      <label class="col-sm-2 control-label" style="left: 7%;padding-top: 1%;">题目数量：</label>
+                      <div class="col-sm-8">
+                        <select class="form-control col-sm-8" name="num" value="0">
+                          <option>0</option>
+                          <option>5</option>
+                          <option>10</option>
+                          <option>20</option>
+                          <option>50</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <input type="submit" class="btn btn-default one_to_five" value="开始测试">
+            </form><!--一到五的表单到此-->
+            <form action="testall" method="POST"><!--随机表单-->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a
+                      data-toggle="collapse"
+                      data-parent="#accordion"
+                      href="#collapseSix"
+                    >
+                      <img class="panel-img" src="./static/img/sort-img6.png" alt="">
+                    </a>
+                </div>
+                <div id="collapseSix" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="form-group">
+                      <div class=" col-sm-2">
+                        <input class="form-control" type="text" name="type" value="全随机" disabled>
+                      </div>
+                      <label class="col-sm-2 control-label" style="left: 7%;padding-top: 1%;">题目数量：</label>
+                      <div class="col-sm-8">
+                        <select class="form-control col-sm-8" name="num" value="0">
+                          <option>10</option>
+                          <option>20</option>
+                          <option>50</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <input type="submit" class="btn btn-default only_six" value="开始测试">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <nav
+        class="navbar navbar-default navbar-yami-header navbar-default-yami"
+        role="navigation"
+      >
+        <div class="row container-fluid">
+          <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav nav-yami-ul">
+              <li class="col-sm-5"></li>
+              <li class="col-sm-2"><a href="#">关于本站</a></li>
+              <li class="col-sm-5"></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <script>
+      function close_onetofive(){
+        $('#collapseOne,#collapseTwo,#collapseThree,#collapseFour,#collapseFive').collapse('hide');
+        $('#collapseOne,#collapseTwo,#collapseThree,#collapseFour,#collapseFive').find("input").attr("name","");
+        $('#collapseOne,#collapseTwo,#collapseThree,#collapseFour,#collapseFive').find("select").attr("name","");
+      }
+      function close_six(){
+        $("#collapseSix").collapse('hide');
+        $("#collapseSix").find("input").attr("name","");
+        $("#collapseSix").find("select").attr("name","");
+      }
+
+      $(function(){close_six();close_onetofive();});//开局启动
+
+      $('#collapseOne,#collapseTwo,#collapseThree,#collapseFour,#collapseFive').on('show.bs.collapse', function () {
+        close_six();
+        $(this).find("input").attr("name","type");
+        $(this).find("select").attr("name","num");
+      });
+
+      $('#collapseOne,#collapseTwo,#collapseThree,#collapseFour,#collapseFive').on('hidden.bs.collapse', function () {
+        $(this).find("input").attr("name","");
+        $(this).find("select").attr("name","");
+        $(this).find("select").val("0");
+      });
+      
+      $('#collapseSix').on('show.bs.collapse', function () {
+        close_onetofive();
+        $("#collapseSix").find("input").attr("name","type");
+        $("#collapseSix").find("select").attr("name","num");
+        $(".one_to_five").hide(500);
+        $(".only_six").show(500);
+        
+      });
+
+      $('#collapseSix').on('hidden.bs.collapse', function () {
+        $(this).find("input").attr("name","");
+        $(this).find("select").attr("name","");
+        $(".only_six").hide(500);
+        $(".one_to_five").show(500);
+      });
+
+      function one_to_five(){
+        var one = $("#collapseOne").find("select").val();
+        var two = $("#collapseTwo").find("select").val();
+        var three = $("#collapseThree").find("select").val();
+        var four = $("#collapseFour").find("select").val();
+        var five = $("#collapseFive").find("select").val();
+        var All_num = parseInt(one)+parseInt(two)+parseInt(three)+parseInt(four)+parseInt(five);
+        if(All_num==10||All_num==20||All_num==50){
+            alert($("#testForm").serialize());
+            
+            event.preventDefault();
+            $.ajax({
+              type:"POST",
+              dataType:"json",
+              url:"http://localhost:8080/test/",
+              data:$("#testForm").serialize(),
+              success:function (result){
+                alert("成功！！");
+                window.location.href = "./Text.html";
+              },
+              error: function (){
+                alert("异常！");
+                window.location.href = "./Text.html";
+              },
+            });
+            return true;
+        }
+        else{
+          alert("题目数量不正确");
+          return false;
+        }
+      }
+      
+    </script>
+  </body>
+</html>

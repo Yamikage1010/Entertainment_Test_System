@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Entertainment_Test_System</title>
+    <meta http-equiv="X-UA-Compatibe" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/bootstrap-3.3.7.css" />
+    <link rel="stylesheet" href="./static/css/style.css" />
+    <link rel="stylesheet" href="./static/css/bootstrap-datetimepicker.min.css" />
+    <script src="./static/js/jquery-3.2.1.min.js"></script>
+    <script src="./static/js/bootstrap-3.3.7.js"></script>
+    <script src="./static/js/bootstrap-datetimepicker.js"></script>
+  </head>
+  <body>
+    <!--<jsp:include page="header.jsp" flush="true"></jsp:include>-->
+    <nav
+      class="navbar navbar-default navbar-yami-header navbar-default-yami"
+      role="navigation"
+    >
+      <div class="row container-fluid">
+        <a class="navbar-brand col-sm-3 title2">模拟测试系统</a>
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#example-navbar-collapse"
+          >
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+          <div class="col-sm-6">
+            <ul class="nav navbar-nav nav-yami-ul">
+              <li class="col-sm-4"><a href="./index.html">首页</a></li>
+              <li class="col-sm-4"><a href="./sort.html">分类</a></li>
+              <li class="col-sm-4"><a href="##">个人信息</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-3">
+            <ul class="nav navbar-nav navbar-right nav-yami-ul">
+              <li><a href="##">退出登录</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-under">
+      <div class="row">
+        <img class="img-responsive nav-underimg col-sm-12" src="./static/img/top.png" />
+      </div>
+    </div>
+    <div class="personal-firstpage">
+      <div class="container">
+        <div class="row">
+            <div class="personal-title col-sm-12">
+                <h1>用户信息</h1>
+            </div>
+
+            <div class="personal-main form-horizontal col-sm-offset-1 col-sm-5">
+              <div class="personal-main-title col-sm-12">
+                <h2>个人信息</h2>
+              </div>
+                <div class="form-group">
+                  <label for="PD_userId" class="col-sm-3 control-label">用户id</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="PD_userId" readonly>
+                  </div>
+                  <div class="col-sm-3"></div>
+                </div>
+                <div class="form-group">
+                  <label for="PD_username" class="col-sm-3 control-label">用户名</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="PD_username" readonly>
+                  </div>
+                  <div class="col-sm-3"></div>
+                </div>
+                <div class="form-group">
+                    <label for="PD_email" class="col-sm-3 control-label">邮箱</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="PD_email" readonly>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+                <div class="form-group">
+                    <label for="PD_gender" class="col-sm-3 control-label">性别</label>
+                    <div class="col-sm-6">
+                        <input class="form-control" id="PD_gender" readonly>
+                    </div>
+                    <div class=" col-sm-3"></div>
+                </div>
+                <div class="form-group">
+                    <label for="PD_birthday" class="col-sm-3 control-label">生日</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="PD_birthday" readonly>
+                    </div>
+                    <div class=" col-sm-3"></div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-12" style="text-align: center;">
+                    <input type="button" class="btn btn-default Updata-btn" onclick="show_PMU()" value="修改信息">
+                  </div>
+                </div>
+            </div>
+
+            <div class="personal-record col-sm-5 col-sm-offset-1">
+              <div class="personal-main-title col-sm-12">
+                <h2>测试记录</h2>
+              </div>
+              <div class="table-responsive pre-scrollable col-sm-12 record-style">
+                <table class="table table-hover table-style">
+                  <thead>
+                    <tr>
+                      <th width="30%" >记录编号</th>
+                      <th width="20%">用户id</th>
+                      <th width="30%">结束时间</th>
+                      <th width="20%">分数</th>
+                  </thead>
+                  <tbody class="table_body">
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="personal-main-Updata col-sm-offset-1 col-sm-5">
+              <div class="personal-main-title col-sm-12">
+                <h2>修改信息</h2>
+              </div>
+              <form class="form-horizontal" role="form" onsubmit="return Updata_PD_btn()">
+                <div class="form-group">
+                  <label for="U_n" class="col-sm-3 control-label">用户id</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="userId" name="userId" value="000001" readonly>
+                  </div>
+                  <div class="col-sm-3"></div>
+                </div>
+                <div class="form-group">
+                  <label for="U_n" class="col-sm-3 control-label">用户名</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="username" name="userName" value="" placeholder="请输入用户名">
+                  </div>
+                  <div class="col-sm-3"><span class="sora2"></span></div>
+                </div>
+                <div class="form-group">
+                  <label for="U_p" class="col-sm-3 control-label">当前密码</label>
+                  <div class="col-sm-6">
+                    <input type="password" class="form-control" id="userpwd" placeholder="请输入当前密码">
+                  </div>
+                  <div class="col-sm-3"><span class="sora3"></span></div>
+                </div>
+                <div class="form-group">
+                  <label for="new_U_p" class="col-sm-3 control-label">新密码</label>
+                  <div class="col-sm-6">
+                    <input type="password" class="form-control" id="New_userpwd" name="userPwd" placeholder="请输入新密码">
+                  </div>
+                  <div class="col-sm-3"><span class="sora4"></span></div>
+                </div>
+                <div class="form-group">
+                    <label for="Re_new_U_p" class="col-sm-3 control-label">安可</label>
+                    <div class="col-sm-6">
+                      <input type="password" class="form-control R_userpwd" placeholder="请再输入新密码">
+                    </div>
+                    <div class="col-sm-3"><span class="sora5"></span></div>
+                </div>
+                <div class="form-group">
+                    <label for="rM" class="col-sm-3 control-label">邮箱</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="email" name="email" value="xxx@xxx.com">
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+                <div class="form-group">
+                    <label for="gender" class="col-sm-3 control-label">性别</label>
+                    <div class="col-sm-6">
+                        <select class="form-control" id="gender" name="gender">
+                        <option value="M">男</option>
+                        <option value="W">女</option>
+                        </select>
+                    </div>
+                    <div class=" col-sm-3"></div>
+                </div>
+                <div class="form-group">
+                    <label for="rA" class="col-sm-3 control-label">生日</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="birthday" name="birthday" placeholder="请选择生日">
+                    </div>
+                    <div class=" col-sm-3"><span class="sora7"></span></div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-6" style="text-align: right;">
+                    <input type="submit" class="btn btn-default" id="Updata_PD" value="提交修改" disabled>
+                  </div>
+                  <div class="col-sm-6" style="text-align: left;">
+                    <input type="button" class="btn btn-default" value="取消" onclick="Updata_cancel()">
+                  </div>
+                </div>
+              </form>
+            </div>
+            
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <nav
+        class="navbar navbar-default navbar-yami-header navbar-default-yami"
+        role="navigation"
+      >
+        <div class="row container-fluid">
+          <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav nav-yami-ul">
+              <li class="col-sm-5"></li>
+              <li class="col-sm-2"><a href="#">关于本站</a></li>
+              <li class="col-sm-5"></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <script>
+      $("#birthday").datepicker({
+        minView: "month",
+        format: "yyyy-mm-dd",
+        language: 'zh-CN',
+        autoclose:true
+      });//别管这个
+
+      //模拟json数据
+      var recordid_json = new Array("00001","00002","00003","00004","00005");
+      var recorduid_json = new Array("00001","00001","00001","00001","00001");
+      var grade_json = new Array("100","80","60","70","80");
+      var time_json = new Array("2020-06-08 22:22:22","2020-06-08 12:22:22","2020-06-08 21:22:22","2020-06-08 23:22:22","2020-06-08 20:22:22");
+
+      var recordid_list = new Array();
+      var recorduid_list = new Array();
+      var grade_list = new Array();
+      var time_list = new Array();
+      var Data_count = 0;//记录数量
+
+      //开局启动
+      $(function(){
+        //模拟ajax遍历json数据
+        for(i=0;i<4;i++){
+          recordid_list[i] = recordid_json[i];
+          recorduid_list[i] = recorduid_json[i];
+          grade_list[i] = grade_json[i];
+          time_list[i] = time_json[i];
+          Data_count++;
+        }
+        show_data();//显示所有测试记录
+        show_data();//测试用，记得删
+        get_personal_data();//显示个人信息
+      });
+      function show_data(){
+        for(i=0;i<Data_count;i++){
+        $('<tr/>')
+            .html('<td class="record-id">'+recordid_list[i]+'</td>'
+            +'<td class="record-uid">'+recorduid_list[i]+'</td>'
+            +'<td class="grade">'+time_list[i]+'</td>'
+            +'<td class="time">'+grade_list[i]+'</td>')
+            .appendTo($(".table_body"));
+        }
+      }//显示所有测试记录
+
+      var User_id = $("#userId");//用户id
+      var User_name = $("#username");//用户名
+      var User_password = $("#userpwd");//当前密码
+      var New_User_password = $("#New_userpwd");//新密码
+      var R_New_User_password = $(".R_userpwd");//新密码重复
+      var Gender = $("#gender");//性别
+      var Email = $("#email");//邮箱
+      var Age = $("#birthday");//生日
+
+      function get_personal_data(){
+        //用ajax赋值
+        User_id.attr("value","00001");
+        User_name.attr("value","the order");
+        Gender.attr("value","秀吉");
+        Email.attr("value","xxx@xxx.com");
+        Age.attr("value","2002-02-20");
+
+        $("#PD_userId").attr("value","00001");
+        $("#PD_username").attr("value","the order");
+        $("#PD_gender").attr("value","秀吉");
+        $("#PD_email").attr("value","xxx@xxx.com");
+        $("#PD_birthday").attr("value","2002-02-20");
+      }//显示个人信息,给修改信息赋值
+
+      function Updata_PD_btn(){
+        //用ajax异步验证当前密码是否正确
+        if(User_password == "模拟密码"){
+          
+        }//正确提交表单
+        else{
+          return false;
+        }
+
+      }//提交修改按钮事件
+
+      function show_PMU(){
+        $(".personal-main").hide(500,function(){
+          $(".personal-record").animate({left:'-2%'});
+          $(".personal-main-Updata").slideDown();
+        });
+      }
+      function Updata_cancel(){
+        $(".personal-main-Updata").slideUp(function(){
+            $(".personal-main").show(500,function(){
+              $(".personal-main").animate({width:'41.66666667%;',height:'auto',opacity:'1'});
+              $(".personal-record").animate({left:'-6%'});
+          });
+        });
+      }
+
+      //以下是表单验证
+      User_name.hover(function(){
+        check_Updata();
+        if(User_name.val() == ""){
+          $(".sora2").html("不能为空");
+        }else{
+          $(".sora2").html("");
+        }
+      });
+      
+      User_password.hover(function(){
+        check_Updata();
+        if(User_password.val() == ""){
+          $(".sora3").html("不能为空");
+        }else{
+          $(".sora3").html("");
+        }
+      });
+      
+      New_User_password.hover(function(){
+        check_Updata();
+        if(New_User_password.val() == ""){
+          $(".sora4").html("不能为空");
+        }else{
+          $(".sora4").html("");
+        }
+      });
+      
+      R_New_User_password.hover(function(){
+        check_Updata();
+        if(R_New_User_password.val() == ""){
+          $(".sora5").html("不能为空");
+        }
+        else if(New_User_password.val() != R_New_User_password.val()){
+          $(".sora5").html("两次密码不同");
+        }
+        else{
+          $(".sora5").html("");
+        }
+      });
+      /*var r_Mail = $("#email");
+      var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+      r_Mail.hover(function(){
+        check_Updata();
+        if(r_Mail.val() == ""){
+          $(".sora6").html("不能为空");
+        }else if(!reg.test(r_Mail.val())){
+          $(".sora6").html("邮箱格式错误");
+        }
+        else{
+          checkEmail();
+        }
+      });*///邮箱验证
+      
+      Age.hover(function(){
+        check_Updata();
+        if(Age.val() == ""){
+          $(".sora7").html("不能为空");
+        }else{
+          $(".sora7").html("");
+        }
+      });
+
+      //激活按钮函数
+      function check_Updata(){
+      if(User_name.val() != "" && User_password.val() != "" && New_User_password.val() != "" && R_New_User_password.val() !=""
+      && New_User_password.val() == R_New_User_password.val() && Age.val() != ""){
+          $("#Updata_PD").removeAttr("disabled");
+      }
+    }
+    $("#Updata_PD").hover(function(){
+      if(User_name.val() == "" ||  User_password.val() == "" || New_User_password.val() == ""
+      || New_User_password.val() != R_New_User_password.val() || R_New_User_password.val() == "" ||Age.val() == ""){
+        $("#Updata_PD").attr("disabled",true);
+      }
+    });
+    
+    </script>
+  </body>
+</html>

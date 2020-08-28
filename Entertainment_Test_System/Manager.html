@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatibe" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entertainment_Test_System</title>
+    <link rel="stylesheet" href="./static/css/bootstrap-3.3.7.css" />
+    <link rel="stylesheet" href="./static/css/style.css" />
+    <script src="./static/js/jquery-3.2.1.min.js"></script>
+    <script src="./static/js/bootstrap-3.3.7.js"></script>
+  </head>
+  <body>
+    <!--<jsp:include page="header.jsp" flush="true"></jsp:include>-->
+    <nav
+      class="navbar navbar-default navbar-yami-header navbar-default-yami"
+      role="navigation"
+    >
+      <div class="row container-fluid">
+        <a class="navbar-brand col-sm-3 title2">模拟测试网站</a>
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#example-navbar-collapse"
+          >
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+          <div class="col-sm-9">
+            <ul class="nav navbar-nav nav-yami-ul">
+              <li class="col-sm-4"><a href="#">试题管理</a></li>
+              <li class="col-sm-4"><a href="./Feedback.html">反馈板</a></li>
+              <li class="col-sm-4"><a href="#">管理授权注册</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-under">
+      <div class="row">
+        <img class="img-responsive nav-underimg col-sm-12" src="./static/img/top.png" />
+      </div>
+    </div>
+    <div class="modal fade lr-dialog" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header" style="text-align: center;"> 
+                  <h4 class="modal-title" id="myModalLabel">请输入指令确定删除</h4>
+              </div>
+              <div class="modal-body" style="text-align: center;"><input type="text" id="order"></div>
+              <div class="modal-footer" style="text-align: center;">
+                  <a id="order_button" class="btn btn-default" data-dismiss="modal">确定</a>
+              </div>
+          </div><!-- /.modal-content -->
+      </div><!-- /.modal -->
+    </div>
+    <div class="Manager-firstpage">
+      <div class="container">
+        <div class="row">
+          <h1 class="h1">试题管理</h1>
+          <ul id="myTab" class="nav nav-tabs">
+            <li class="active">
+              <a href="#Subject_Manager" data-toggle="tab"><strong> 试题管理</strong></a>
+            </li>
+            <li><a href="#Insert_Subject" data-toggle="tab"><strong>添加试题</strong></a></li>
+          </ul>
+          <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="Subject_Manager">
+              <div class="row">
+                <div class="col-sm-offset-1 col-sm-4 Sub-search">
+                <form action="" method="post">
+                    <div class="input-group" >                            
+                      <input type="text" class="form-control" placeholder="请输入试题号" name="questionId" >
+                      <input  value="selSingleWH" type="hidden" name="action"> 
+                      <span class="input-group-btn">
+                       <input class="btn btn-default" value="搜索" type="submit" id="sel" >    
+                      </span>                         
+                    </div>   
+                </form>
+              </div>
+              <div class="col-sm-offset-2 col-sm-4  Sub-search">
+                <form action="" method="post">
+                  <div class="input-group" >                            
+                    <select class="form-control"  name="type" value="科技" >
+                      <option>科技</option>
+                      <option>艺术</option>
+                      <option>数学</option>
+                      <option>二次元</option>
+                    </select>
+                    <span class="input-group-btn">
+                     <input class="btn btn-default" value="搜索" type="submit" id="sel" >    
+                    </span>                         
+                  </div>   
+              </form>
+            </div>
+            </div>
+                <form>
+                <div class="table-responsive">
+                    <table class="table table-hover table-style" style="table-layout: fixed;">
+                      <thead>
+                        <tr>
+                          <th style="max-width:13% ;">试题编号</th>
+                          <th style="max-width:8% ;">类型</th>
+                          <th style="max-width:20% ;">试题</th>
+                          <th style="max-width:10% ;">A</th>
+                          <th style="max-width:10% ;">B</th>
+                          <th style="max-width:10% ;">C</th>
+                          <th style="max-width:10% ;">D</th>
+                          <th style="max-width:5% ;">答案</th>
+                          <th style="max-width:16% ;">操作</th></tr>
+                      </thead>
+                      <tbody class="table_body">
+                      </tbody>
+                    </table>
+                  </div>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="Insert_Subject">
+              <div class="row Insert-style">
+                <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <label for="Insert_S_N" class="col-sm-2 control-label">试题编号</label>
+                    <div class="col-sm-2">
+                      <input type="text" class="form-control" id="Insert_questionId" value="系统默认" disabled>
+                    </div>
+                    <label for="Insert_S_A" class="col-sm-1 control-label">答案</label>
+                    <div class="col-sm-2">
+                      <select class="form-control" id="Insert_answer" value="A">
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                        <option>D</option>
+                      </select>
+                    </div>
+                    <label for="Insert_S_t" class="col-sm-1 control-label">分类</label>
+                    <div class="col-sm-2">
+                      <select class="form-control" id="Insert_type" value="科技">
+                        <option>科技</option>
+                        <option>艺术</option>
+                        <option>数学</option>
+                        <option>二次元</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Insert_S_Q" class="col-sm-offset-1 col-sm-1 control-label">试题</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="Insert_title">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Insert_S_a" class="col-sm-2 control-label">选项A</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="Insert_a">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Insert_S_b" class="col-sm-2 control-label">选项B</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="Insert_b" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Insert_S_c" class="col-sm-2 control-label">选项C</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="Insert_c" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Insert_S_d" class="col-sm-2 control-label">选项D</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="Insert_d">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-2">
+                      <button type="submit" class="btn btn-default">确认添加</button>
+                    </div>
+                    <div class="col-sm-2">
+                      <a class="btn  btn-default" data-toggle="tab" href="#Subject_Manager">返回</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="Update_Subject">
+              <div class="row Update-style">
+                <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <label for="Update_S_N" class="col-sm-2 control-label">试题编号</label>
+                    <div class="col-sm-2">
+                      <input type="text" class="form-control" id="questionId" disabled>
+                    </div>
+                    <label for="Update_S_A" class="col-sm-1 control-label">答案</label>
+                    <div class="col-sm-2">
+                      <select class="form-control" id="answer" value="B">
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                        <option>D</option>
+                      </select>
+                    </div>
+                    <label for="Update_S_t" class="col-sm-1 control-label">分类</label>
+                    <div class="col-sm-2">
+                      <select class="form-control" id="type" value="科技">
+                        <option>科技</option>
+                        <option>艺术</option>
+                        <option>数学</option>
+                        <option>二次元</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Update_S_Q" class="col-sm-offset-1 col-sm-1 control-label">试题</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="title" value="养鸡党和养女党的梗出自哪部动漫？">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Update_S_a" class="col-sm-2 control-label">选项A</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="a" value="A.樱花庄的宠物女孩 ">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Update_S_b" class="col-sm-2 control-label">选项B</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="b" value=" B.真实之泪 ">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Update_S_c" class="col-sm-2 control-label">选项C</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="c" value=" C.悠久之翼">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Update_S_d" class="col-sm-2 control-label">选项D</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="d" value=" D.邻座怪同学">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-2">
+                      <button type="submit" class="btn btn-default">提交修改</button>
+                    </div>
+                    <div class="col-sm-2">
+                      <a class="btn  btn-default" data-toggle="tab" href="#Subject_Manager">返回</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div><!--div Updata-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      //模拟json数据
+      var Subnum_json = new Array("A00001","A00002");
+      var Subtype_json = new Array("二次元","二次元");
+      var Question_json = new Array("养鸡党和养女党的梗出自哪部动漫？"
+      ,"以下哪部不是宫崎骏的作品?");
+      var A_json = new Array("A.樱花庄的宠物女孩","A.夏日大作战");
+      var B_json = new Array("B.真实之泪","B.龙猫");
+      var C_json = new Array("C.悠久之翼","C.幽灵公主");
+      var D_json = new Array("D.邻座怪同学","D.千与千寻");
+      var Anawer_json = new Array("B","A");//模拟查询的答案
+      var Data_count = 0;
+
+      var Subnum = new Array();
+      var Subtype = new Array();
+      var Question = new Array();
+      var A = new Array();
+      var B = new Array();
+      var C = new Array();
+      var D = new Array();
+      var Anawer = new Array();
+
+      for (i=0; i<2; i++) {//for循环模拟遍历json数据
+        Subnum[Data_count] = Subnum_json[Data_count];
+        Subtype[Data_count] = Subtype_json[Data_count];
+        Question[Data_count] = Question_json[Data_count];
+        A[Data_count] = A_json[Data_count];
+        B[Data_count] = B_json[Data_count];
+        C[Data_count] = C_json[Data_count];
+        D[Data_count] = D_json[Data_count];
+        Anawer[Data_count] = Anawer_json[Data_count];
+        Data_count++;
+      }
+
+      function show_data(){
+        for(i=0;i<Data_count;i++){
+        $('<tr/>')
+            .html('<td style="max-width:13% ;" class="s_id">'+Subnum[i]+'</td>'
+            +'<td style="max-width:8% ;" class="s_t">'+Subtype[i]+'</td>'
+            +'<td style="max-width:20% ;" class="s_q">'+Question[i]+'</td>'
+            +'<td style="max-width:10% ;" class="s_a">'+A[i]+'</td>'
+            +'<td style="max-width:10% ;" class="s_b">'+B[i]+'</td>'
+            +'<td style="max-width:10% ;" class="s_c">'+C[i]+'</td>'
+            +'<td style="max-width:10% ;" class="s_d">'+D[i]+'</td>'
+            +'<td style="max-width:5% ;" class="s_answer">'+Anawer[i]+'</td>'
+            +'<td style="max-width:16% ;"><a class="btn btn-warning btn-sm Update-Subject" href="#Update_Subject" data-toggle="tab" value="'+i+'">修改</a>'
+            +'<a class="btn btn-danger btn-sm Delete-Subject" href="#myModal" data-toggle="modal" value="'+i+'">删除</a><td/>')
+            .appendTo($(".table_body"));
+        }
+      }//显示所有数据
+      
+      $(".table_body").on("click",".Update-Subject",function(){
+        $("#questionId").val(Subnum[$(this).attr("value")]);
+        $("#type").val(Subtype[$(this).attr("value")]);
+        $("#title").val(Question[$(this).attr("value")]);
+        $("#a").val(A[$(this).attr("value")]);
+        $("#b").val(B[$(this).attr("value")]);
+        $("#c").val(C[$(this).attr("value")]);
+        $("#d").val(D[$(this).attr("value")]);
+        $("#answer").val(Anawer[$(this).attr("value")]);
+      });//修改试题按钮进行赋值
+
+      $(".table_body").on("click",".Delete-Subject",function(){
+        $("#order_button").val(Subnum[$(this).attr("value")]);
+      });//删除试题按钮进行赋值
+
+      $("#order_button").click(function(){
+          if($("#order").val() == "the order active"){
+            alert("指令正确"+$("#order_button").val());
+          }
+          else{
+            alert("指令错误");
+          }
+      });//删除判定
+
+      $(window).ready(function(){
+        show_data();
+      });
+
+      $(function () {
+        $('a[data-toggle="tab"]').on("shown.bs.tab", function (e) {
+          // 获取已激活的标签页的名称
+          var activeTab = $(e.target).text();
+          // 获取前一个激活的标签页的名称
+          var previousTab = $(e.relatedTarget).text();
+          $(".active-tab span").html(activeTab);
+          $(".previous-tab span").html(previousTab);
+        });
+      });
+    </script>
+  </body>
+</html>
